@@ -18,7 +18,7 @@ export default function Home() {
   useEffect(() => {
     console.log("here")
     if (formData.date) {
-      fetch(`http://localhost:8080/api/bookings?date=${formData.date}`)
+      fetch(`https://booking-sample-app-backend.onrender.com/api/bookings?date=${formData.date}`)
         .then((res) => res.json())
         .then((data) => setAvailableSlots(data.availableSlots));
     }
@@ -49,7 +49,7 @@ export default function Home() {
     e.preventDefault();
     if (!validateForm()) return;
 
-    const response = await fetch('http://localhost:8080/api/bookings', {
+    const response = await fetch('https://booking-sample-app-backend.onrender.com/api/bookings', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData),
